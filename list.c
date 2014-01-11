@@ -50,7 +50,6 @@ list_destroy(struct list **list) {
 
 int
 list_remove_element(struct list *list, struct list_element *element) {
-
     struct list_element *e = list->first_element;
 
     /* If the list is empty return 1. */
@@ -88,7 +87,9 @@ list_size(struct list *list) {
 }
 
 
-int list_add(struct list *list, void *data) {
+int
+list_add(struct list *list, void *data) {
+
     /* Create the element. */
     struct list_element *e = NULL;
 
@@ -177,10 +178,8 @@ list_remove_position(struct list *list, size_t n) {
 
 int
 list_remove_data(struct list *list, void *data) {
-
     struct list_element *e = list->first_element;
     struct list_element *temp = list->first_element;
-
 
     /* If the list is empty return 1. */
     if(e == NULL || list->size == 0) {
@@ -227,7 +226,6 @@ list_foreach_data(struct list *list, void(*func)(void *)) {
 
 void
 list_foreach_element(struct list *list, void(*func)(struct list_element *)) {
-
     struct list_element *e = list->first_element;
 
     while(e != NULL) {
@@ -236,13 +234,11 @@ list_foreach_element(struct list *list, void(*func)(struct list_element *)) {
     }
 
     return;
-
 }
 
 
 struct list_element*
 list_search_element(struct list *list, int(*compare)(struct list_element *)) {
-
     struct list_element *e = list->first_element;
 
     while(e != NULL) {
@@ -253,13 +249,11 @@ list_search_element(struct list *list, int(*compare)(struct list_element *)) {
     }
 
     return NULL;
-
 }
 
 
 void*
 list_search_data(struct list *list, int(*compare)(void *)) {
-
     struct list_element *e = list->first_element;
 
     while(e != NULL) {
@@ -270,5 +264,4 @@ list_search_data(struct list *list, int(*compare)(void *)) {
     }
 
     return NULL;
-
 }
